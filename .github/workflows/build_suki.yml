@@ -33,7 +33,7 @@ jobs:
 
       - name: Build Kernel
         run: |
-          ./build_kernel.sh
+          ./build_kernel.sh --version "-4k-dx4m"
 
       - name: Prepare artifacts
         run: |

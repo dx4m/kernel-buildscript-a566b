@@ -1,16 +1,7 @@
-# Kernel Build Script for the Samsung Galaxy S24 (Exynos) - SM-921B
+# Kernel Build Script for the Samsung Galaxy A56 - SM-A566B
 
-[![Build with SukiSU SuSFS](https://github.com/dx4m/kernel-buildscript-e1s/actions/workflows/build_suki.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-e1s/actions/workflows/build_suki.yml)
-[![Build with KernelSU SuSFS](https://github.com/dx4m/kernel-buildscript-e1s/actions/workflows/build_ksu.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-e1s/actions/workflows/build_ksu.yml)
-[![Build clean Kernel](https://github.com/dx4m/kernel-buildscript-e1s/actions/workflows/build_clean.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-e1s/actions/workflows/build_clean.yml)
-[![Issues](https://img.shields.io/github/issues/dx4m/kernel-buildscript-e1s?color=%230055AA)](https://github.com/dx4m/kernel-buildscript-e1s/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/dx4m/kernel-buildscript-e1s?color=%230055AA)](https://github.com/dx4m/kernel-buildscript-e1s/pulls)
-![GitHub Downloads (specific asset, all releases)](https://img.shields.io/github/downloads/dx4m/kernel-buildscript-e1s/boot.img.tar?color=%2300AA11)
-![GitHub Downloads (specific asset, all releases)](https://img.shields.io/github/downloads/dx4m/kernel-buildscript-e1s/boot.img?color=%2300AA11)
-
-
-
-This repository contains a simple build script and environment setup for compiling the **Samsung Galaxy S24 (Exynos - SM-921B)** kernel based on the AOSP toolchain and Samsung kernel sources.
+This repository contains a simple build script and environment setup for compiling the **Samsung Galaxy A56 (SM-A566B)** kernel based on the AOSP toolchain and Samsung kernel sources.
+It was made so the A56 community has an updated kernel because of Luciiuss left.
 
 ## Intro
 
@@ -18,7 +9,6 @@ This repository contains a simple build script and environment setup for compili
 - Support for custom build arguments (e.g. `--enable-ksu`, `--enable-suki`, `--disable-suki`) - Use `--help` for more info
 - `--disable-samsung-protection` is enabled by default, otherwise your device won't boot.
 - Actions support
-- May also work on the S24+ (SM-926B) **!!!NOT TESTED!!!**
 
 ## Requirements
 
@@ -38,8 +28,8 @@ This repository contains a simple build script and environment setup for compili
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/dx4m/kernel-buildscript-e1s.git
-   cd kernel-buildscript-e1s
+   git clone https://github.com/dx4m/kernel-buildscript-a566b.git
+   cd kernel-buildscript-a566b
    chmod +x *.sh
    ```
 
@@ -107,12 +97,14 @@ See the [LICENSE](LICENSE) file for details.
 
 ## Credits
 Special thanks to:
-- [Samsung](https://opensource.samsung.com/) for releasing the [kernel sources](https://opensource.samsung.com/uploadSearch?searchValue=sm-s921b)
-- [Lucius](https://github.com/Luciiuss) for his buildscript and [kernel](https://github.com/Luciiuss/sm-a566b) for the Galaxy A56.
+- [Samsung](https://opensource.samsung.com/) for releasing the [kernel sources](https://opensource.samsung.com/uploadSearch?searchValue=sm-a566b)
+- [Lucius](https://github.com/Luciiuss) for his buildscript and [kernel](https://github.com/Luciiuss/sm-a566b) for the Galaxy A56 (OUTDATED!).
 
 ## Resources
 - [AOSP Kernel Sources](https://android.googlesource.com/kernel/manifest/)
-- [Samsung Kernel Source](https://github.com/dx4m/android-kernel-samsung-e1s)
-- [Kernel Buildscript](https://github.com/dx4m/kernel_buildscript_gts10fewifi) for the Galaxy Tab S10 FE where this bases on
+- [Samsung Kernel Source](https://github.com/dx4m/android-kernel-samsung-a566b)
+- [Kernel Buildscript](https://github.com/dx4m/kernel-buildscript-e1s) for the S24 where this bases on
 - [SukiSU Ultra Project](https://github.com/sukisu-ultra/sukisu-ultra)
+- [KernelSU Project](https://github.com/tiann/KernelSU)
 - [susfs4ksu](https://gitlab.com/simonpunk/susfs4ksu)
+- [HymoFS](https://github.com/Anatdx/HymoFS)

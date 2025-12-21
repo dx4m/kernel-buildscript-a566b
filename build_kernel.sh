@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: GPL-3.0
 #
-# Kernel build script for Samsung Galaxy S24 (Exynos)
+# Kernel build script for Samsung Galaxy A56 (Exynos)
 
 CURRENT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 KERNELBUILD="${CURRENT_DIR}/kernelbuild"
@@ -25,8 +25,7 @@ CONFIG=false
 SETVERSION=""
 LOCALVERSION=""
 
-VERSION="-android14-11-dx4m"
-TARGETSOC="s5e9945"
+VERSION="-android15-6.6-dx4m"
 
 if [ ! -d $PREBUILTS ]; then
 	echo "[❌] Missing prebuilts"
@@ -124,7 +123,7 @@ export LD_LIBRARY_PATH="${PREBUILTS}/kernel-build-tools/linux-x86/lib64"
 export HOSTCFLAGS="${SYSROOT_FLAGS} ${CFLAGS}"
 export HOSTLDFLAGS="${SYSROOT_FLAGS} ${LDFLAGS}"
 
-TARGET_DEFCONFIG="${1:-e1s_defconfig}"
+TARGET_DEFCONFIG="${1:-a56_defconfig}"
 ARGS="CC=clang LD=ld.lld ARCH=arm64 LLVM=1 LLVM_IAS=1"
 
 CONFIG_FILE="${OUTPUT_DIR}/.config"
@@ -154,7 +153,6 @@ else
      -C "${KERNEL_DIR}" \
      O="${OUTPUT_DIR}" \
      ${ARGS} \
-     EXTRA_CFLAGS:=" -DCFG80211_SINGLE_NETDEV_MULTI_LINK_SUPPORT -DTARGET_SOC=${TARGETSOC}" \
      "${TARGET_DEFCONFIG}"
 fi
 
@@ -232,8 +230,7 @@ KBUILD_BUILD_USER="build-user" KBUILD_BUILD_HOST="build-host" make -j"$(nproc)" 
      -C "${KERNEL_DIR}" \
      O="${OUTPUT_DIR}" \
      ${ARGS} \
-     EXTRA_CFLAGS:=" -I$KERNEL_DIR/drivers/ufs/host/s5e9945/ -I$KERNEL_DIR/arch/arm64/kvm/hyp/include -DCFG80211_SINGLE_NETDEV_MULTI_LINK_SUPPORT -DTARGET_SOC=${TARGETSOC}"
-
+	 KCFLAGS="-Wno-unused-function -Wno-error=unused-function"
 
 # Restore fix from earlier
 sed -i 's/echo ""$/echo "+"/' $KERNEL_DIR/scripts/setlocalversion

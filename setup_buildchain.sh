@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: GPL-3.0
 #
-# Kernel build script for Samsung S24 (Exynos)
+# Kernel build script for Samsung A56 (Exynos)
 
 BUILDCHAIN="buildchain"
 KERNELBUILD="kernelbuild"
@@ -40,9 +40,9 @@ function getAOSPBuildtools() {
 }
 
 function getSamsungKernel() {
-	echo "[💠] Getting Samsung kernel for S24 (Exynos) from github"
+	echo "[💠] Getting Samsung kernel for A56 (Exynos) from github"
 	cd $KERNELBUILD
-	git clone http://github.com/dx4m/android-kernel-samsung-e1s.git -b main common
+	git clone https://github.com/dx4m/android-kernel-samsung-a566b.git -b main common
 	cd ..
 	echo "[✅] Done."
 }
@@ -101,9 +101,9 @@ function getKernelSU() {
 function getSuSFS(){
 	echo "[💠] Getting SuSFS"
 	cd $KERNEL_DIR/../
-        git clone https://gitlab.com/simonpunk/susfs4ksu.git -b gki-android14-6.1 susfs4ksu
+        git clone --depth=1 https://gitlab.com/simonpunk/susfs4ksu.git -b gki-android15-6.6 susfs4ksu
         cd $CURRENT_DIR
-        cp $KERNEL_DIR/../susfs4ksu/kernel_patches/50_add_susfs_in_gki-android14-6.1.patch $KERNEL_DIR/
+        cp $KERNEL_DIR/../susfs4ksu/kernel_patches/50_add_susfs_in_gki-android15-6.6.patch $KERNEL_DIR/
 		if [ "$ENABLEKSU" = true ]; then
 			cp $KERNEL_DIR/../susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch $KERNEL_DIR/KernelSU/
 		fi
@@ -112,7 +112,7 @@ function getSuSFS(){
 
         cd $KERNEL_DIR
 		echo "[💠] Patching Kernel"
-        patch -p1 --fuzz=3 < 50_add_susfs_in_gki-android14-6.1.patch
+        patch -p1 --fuzz=3 < 50_add_susfs_in_gki-android15-6.6.patch
 		
 		if [ "$ENABLEKSU" = true ]; then
 			grep -q '<linux/stat.h>' include/linux/susfs.h || sed -i '/#include <linux\/susfs_def.h>/a #include <linux/stat.h>' include/linux/susfs.h
@@ -130,9 +130,9 @@ function getHymoFS(){
 	
 	cd $KERNEL_DIR
 	if [ "$DISABLESUSFS" = true ]; then
-		curl -LSs https://raw.githubusercontent.com/Anatdx/HymoFS/refs/heads/android14_6.1/patch/hymofs.patch > hymofs.patch
+		curl -LSs https://raw.githubusercontent.com/Anatdx/HymoFS/refs/heads/android15_6.6/patch/hymofs.patch > hymofs.patch
 	else
-		curl -LSs https://raw.githubusercontent.com/Anatdx/HymoFS/refs/heads/android14_6.1/patch/hymofs_with_susfs.patch > hymofs.patch
+		curl -LSs https://raw.githubusercontent.com/Anatdx/HymoFS/refs/heads/android15_6.6/patch/hymofs_with_susfs.patch > hymofs.patch
 	fi
 	echo "[💠] Patching Kernel for HymoFS"
 	patch -p1 --fuzz=3 < hymofs.patch

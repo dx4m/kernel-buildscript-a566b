@@ -1,4 +1,4 @@
-# Kernel Build Script for the Samsung Galaxy A56 - SM-A566B
+# Kernel Build Script for the Samsung Galaxy A56 (Exynos) - SM-A566B
 
 [![Build with SukiSU SuSFS](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_suki.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_suki.yml)
 [![Build with KernelSU SuSFS](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_ksu.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_ksu.yml)

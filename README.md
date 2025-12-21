@@ -1,5 +1,13 @@
 # Kernel Build Script for the Samsung Galaxy A56 - SM-A566B
 
+[![Build with SukiSU SuSFS](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_suki.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_suki.yml)
+[![Build with KernelSU SuSFS](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_ksu.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_ksu.yml)
+[![Build clean Kernel](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_clean.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_clean.yml)
+[![Issues](https://img.shields.io/github/issues/dx4m/kernel-buildscript-a566b?color=%230055AA)](https://github.com/dx4m/kernel-buildscript-a566b/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/dx4m/kernel-buildscript-a566b?color=%230055AA)](https://github.com/dx4m/kernel-buildscript-a566b/pulls)
+![GitHub Downloads (specific asset, all releases)](https://img.shields.io/github/downloads/dx4m/kernel-buildscript-a566b/boot.img.tar?color=%2300AA11)
+![GitHub Downloads (specific asset, all releases)](https://img.shields.io/github/downloads/dx4m/kernel-buildscript-a566b/boot.img?color=%2300AA11)
+
 This repository contains a simple build script and environment setup for compiling the **Samsung Galaxy A56 (SM-A566B)** kernel based on the AOSP toolchain and Samsung kernel sources.
 It was made so the A56 community has an updated kernel because of Luciiuss left.
 

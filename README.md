@@ -1,7 +1,7 @@
 # Kernel Build Script for the Samsung Galaxy A56 (Exynos) - SM-A566B
 
-[![Build with SukiSU SuSFS + Hymo](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_suki_sus_hymo.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_suki.yml)
-[![Build with KernelSU SuSFS + Hymo](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_ksu_sus_hymo.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_ksu.yml)
+[![Build with SukiSU SuSFS + Hymo](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_suki_sus_hymo.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_suki_sus_hymo.yml)
+[![Build with KernelSU SuSFS + Hymo](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_ksu_sus_hymo.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_ksu_sus_hymo.yml)
 [![Build clean Kernel](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_clean.yml/badge.svg)](https://github.com/dx4m/kernel-buildscript-a566b/actions/workflows/build_clean.yml)
 [![Issues](https://img.shields.io/github/issues/dx4m/kernel-buildscript-a566b?color=%230055AA)](https://github.com/dx4m/kernel-buildscript-a566b/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/dx4m/kernel-buildscript-a566b?color=%230055AA)](https://github.com/dx4m/kernel-buildscript-a566b/pulls)

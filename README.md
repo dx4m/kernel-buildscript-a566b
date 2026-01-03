@@ -28,7 +28,7 @@ It was made so the A56 community has an updated kernel because of Luciiuss left.
   ```
   or use
   ```bash
-  ./install_dep.sh
+  sudo ./install_dep.sh
   ```
 - Sufficient disk space (~100GB+ recommended)
 
@@ -74,7 +74,7 @@ It was made so the A56 community has an updated kernel because of Luciiuss left.
 
 4. Build the kernel:
    ```bash
-   ./build_kernel.sh
+   ./build_kernel.sh --enable-suki
    ```
 
   - To build with KernelSU instead of SukiSU Ultra:
@@ -85,6 +85,11 @@ It was made so the A56 community has an updated kernel because of Luciiuss left.
   - Build clean kernel:
 	```bash
 	./build_kernel.sh --disable-suki --disable-samsung-protection
+	```
+	
+  - Build with additional things like SuSFS or HymoFS:
+	```
+	./build_kernel.sh --enable-suki --enable-susfs --enable-hymofs
 	```
 
   - For help use:
@@ -97,6 +102,30 @@ It was made so the A56 community has an updated kernel because of Luciiuss left.
    out/arch/arm64/boot/
    ```
    and a flashable boot.img & boot.img.tar will be generated in the root of the repo.
+   
+## Github Actions
+
+You can fork this repository and spin up your own runner with this Docker composite.yml:
+```
+services:
+  actions_runner:
+    image: dx4m/kernel-buildscript-runner:latest
+    restart: unless-stopped
+    environment:
+      GITHUB_RUNNER_REPO_URL: https://github.com/example/kernel-buildscript-e1s
+      GITHUB_RUNNER_TOKEN: AKK........XYZ
+      GITHUB_USERNAME: example
+      GITHUB_EMAIL: example@example.com
+      GITHUB_RUNNER_VERSION: 2.330.0
+      GITHUB_RUNNER_NAME: example-runner-name
+    ports:
+      - 62991:22 #To have a way to ssh into it with username: build-user, pass: user
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+networks: {}
+```
+Make sure you populate the yaml file right. Then go to your repo -> Actions and spinn up a kernel build.
+When finished, you find your kernel on your repo -> Releases
 
 ## License
 
